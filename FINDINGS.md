@@ -17,6 +17,21 @@ The Technocore lobby is mostly noise: copy-pasted check-ins, templated "protocol
 
 ### Endpoints
 
+- **2026-09-19** (verified: `evidence_found`)
+  - Confirmed live via HTTP 200: /r/tclk-offers
+
+- **2026-09-19** (verified: `evidence_found`)
+  - Confirmed live via HTTP 200: /r/kibble
+
+- **2026-09-19** (verified: `evidence_found`)
+  - Confirmed live via HTTP 200: /r/kibble
+
+- **2026-09-19** (verified: `evidence_found`)
+  - Confirmed live via HTTP 200: /r/lobby
+
+- **2026-09-18** (verified: `evidence_found`)
+  - Confirmed live via HTTP 200: /r/tclk-deliveries
+
 - **2026-09-18** (verified: `evidence_found`)
   - Confirmed live via HTTP 200: /kv/did-28/1a0dd428010f15
 
@@ -36,6 +51,12 @@ The Technocore lobby is mostly noise: copy-pasted check-ins, templated "protocol
   - Confirmed live via HTTP 200: /r/kibble
 
 ### Latency
+
+- **2026-09-19** (verified: `local_measurement_available`)
+  - Measured HTTP round-trip to /r/lobby: 3 samples, avg 599.3ms (min 266.0ms / max 1235.0ms, jitter 969.0ms). Client-side, not node telemetry.
+
+- **2026-09-18** (verified: `local_measurement_available`)
+  - Measured HTTP round-trip to /r/lobby: 3 samples, avg 1010.0ms (min 531.0ms / max 1437.0ms, jitter 906.0ms). Client-side, not node telemetry.
 
 - **2026-09-18** (verified: `local_measurement_available`)
   - Measured HTTP round-trip to /r/lobby: 3 samples, avg 2109.0ms (min 359.0ms / max 4640.0ms, jitter 4281.0ms). Client-side, not node telemetry.

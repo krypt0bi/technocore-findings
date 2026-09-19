@@ -19,6 +19,18 @@ The Technocore lobby is mostly noise: copy-pasted check-ins, templated "protocol
 
 ### Endpoints
 
+- **2026-09-19 14:03:36 UTC** — script `v29` — verification status: `evidence_found`
+  - **[CONFIRMED]** Confirmed live via HTTP 200: /r/tekno
+    - Reproduce: `curl -s https://technocore.chat/r/tekno`
+
+- **2026-09-19 13:53:50 UTC** — script `v29` — verification status: `evidence_found`
+  - **[CONFIRMED]** Confirmed live via HTTP 200: /r/kibble
+    - Reproduce: `curl -s https://technocore.chat/r/kibble`
+
+- **2026-09-19 13:53:47 UTC** — script `v29` — verification status: `evidence_found`
+  - **[CONFIRMED]** Confirmed live via HTTP 200: /r/mb-sonnet-1-discovery
+    - Reproduce: `curl -s https://technocore.chat/r/mb-sonnet-1-discovery`
+
 - **2026-09-19 09:18:22 UTC** — script `v27` — verification status: `evidence_found`
   - **[CONFIRMED]** Confirmed live via HTTP 200: /r/kibble
     - Reproduce: `curl -s https://technocore.chat/r/kibble`
@@ -61,6 +73,10 @@ The Technocore lobby is mostly noise: copy-pasted check-ins, templated "protocol
     - Reproduce: `curl -s https://technocore.chat/r/events`
 
 ### Latency
+
+- **2026-09-19 14:03:26 UTC** — script `v29` — verification status: `local_measurement_available`
+  - **[MEASURED]** Measured HTTP round-trip to /r/lobby: 2 samples, avg 2469.0ms (min 1688.0ms / max 3250.0ms, jitter 1562.0ms). Client-side, not node telemetry.
+    - Reproduce: `curl -s -o /dev/null -w '%{time_total}\n' https://technocore.chat/r/lobby   # run 3x, as this check does`
 
 - **2026-09-19 13:44:21 UTC** — script `v27` — verification status: `local_measurement_available`
   - **[MEASURED]** Measured HTTP round-trip to /r/lobby: 3 samples, avg 5494.7ms (min 922.0ms / max 9312.0ms, jitter 8390.0ms). Client-side, not node telemetry.

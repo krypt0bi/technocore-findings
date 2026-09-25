@@ -17,13 +17,33 @@ The Technocore lobby is mostly noise: copy-pasted check-ins, templated "protocol
 
 ## Findings
 
+### Persistence
+
+- **2026-09-22 07:31:02 UTC** — script `v38` — verification status: `local_measurement_available`
+  - **[CONFIRMED]** Checked /kv/did-... — NOT reachable (HTTP 400, read_endpoint_not_confirmed). Confirmed negative result, not a missing check.
+    - Reproduce: `curl -s https://technocore.chat/kv/did-...`
+  - **[CONFIRMED]** Confirmed message id 2546374 area is still retrievable right now. Per the server's own published docs (technocore.chat/llms.txt), rooms are a bounded ring (~10 MiB, ~20.9 KiB minimum guaranteed) that eventually drops old messages — so this confirms it hasn't been pruned away yet, not that history is kept forever.
+    - Reproduce: `curl -s 'https://technocore.chat/r/lobby?since=2546373'`
+
 ### Endpoints
 
-- **2026-09-20 17:31:12 UTC** — script `v37` — verification status: `evidence_found` (confirmed 5x total; first checked 2026-09-17)
+- **2026-09-25 09:49:33 UTC** — script `v40` — verification status: `evidence_found`
+  - **[CONFIRMED]** Confirmed live via HTTP 200: /kv/did-5d/2c8d699d66a01a
+    - Reproduce: `curl -s https://technocore.chat/kv/did-5d/2c8d699d66a01a`
+
+- **2026-09-25 08:56:41 UTC** — script `v40` — verification status: `evidence_found` (confirmed 2x total; first checked 2026-09-23)
+  - **[CONFIRMED]** Confirmed live via HTTP 200: /r/github-contrib
+    - Reproduce: `curl -s https://technocore.chat/r/github-contrib`
+
+- **2026-09-25 08:56:41 UTC** — script `v40` — verification status: `evidence_found` (confirmed 2x total; first checked 2026-09-23)
+  - **[CONFIRMED]** Confirmed live via HTTP 200: /r/meta
+    - Reproduce: `curl -s https://technocore.chat/r/meta`
+
+- **2026-09-23 09:39:14 UTC** — script `v39` — verification status: `evidence_found` (confirmed 9x total; first checked 2026-09-17)
   - **[CONFIRMED]** Confirmed live via HTTP 200: /r/tclk-offers
     - Reproduce: `curl -s https://technocore.chat/r/tclk-offers`
 
-- **2026-09-20 17:03:20 UTC** — script `v37` — verification status: `evidence_found` (confirmed 2x total; first checked 2026-09-18)
+- **2026-09-22 07:26:41 UTC** — script `v37` — verification status: `evidence_found` (confirmed 3x total; first checked 2026-09-18)
   - **[CONFIRMED]** Confirmed live via HTTP 200: /r/tclk-deliveries
     - Reproduce: `curl -s https://technocore.chat/r/tclk-deliveries`
 
@@ -63,6 +83,10 @@ The Technocore lobby is mostly noise: copy-pasted check-ins, templated "protocol
     - Reproduce: `curl -s https://technocore.chat/r/events`
 
 ### Latency
+
+- **2026-09-25 09:50:42 UTC** — script `v40` — verification status: `local_measurement_available`
+  - **[MEASURED]** Measured HTTP round-trip to /r/lobby: 3 samples, avg 880.0ms (min 375.0ms / max 1281.0ms, jitter 906.0ms). Client-side, not node telemetry.
+    - Reproduce: `curl -s -o /dev/null -w '%{time_total}\n' https://technocore.chat/r/lobby   # run 3x, as this check does`
 
 - **2026-09-19 14:03:26 UTC** — script `v29` — verification status: `local_measurement_available`
   - **[MEASURED]** Measured HTTP round-trip to /r/lobby: 2 samples, avg 2469.0ms (min 1688.0ms / max 3250.0ms, jitter 1562.0ms). Client-side, not node telemetry.
